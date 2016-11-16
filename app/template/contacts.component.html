@@ -11,31 +11,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th> 1        </th>
-			<th> Vasya    </th>
-			<th> Google   </th>
-			<th> HR       </th>
-			<th> 055-555-55-55</th>
-			<th> email@gmail.com</th>
-			<th> <label> <input type="checkbox"> </label> </th>
-		</tr>
-		<tr>
-			<th> 2        </th>
-			<th> Petya    </th>
-			<th> Yandex   </th>
-			<th> CEO      </th>
-			<th> 055-444-44-44</th>
-			<th> petya@gmail.com</th>
-			<th> <label> <input type="checkbox"> </label> </th>
-		</tr>
-		<tr>
-			<th> 3        </th>
-			<th> Motya    </th>
-			<th> HP       </th>
-			<th> Maneger  </th>
-			<th> 055-777-77-77</th>
-			<th> motya@gmail.com</th>
+		<tr *ngFor="let contact of contacts" >
+			<th >{{ contact.id }}      </th>
+			<th> {{ contact.name }}     </th>
+			<th> {{ contact.company }}  </th>
+			<th> {{ contact.position }} </th>
+			<th> {{ contact.phone }}    </th>
+			<th> {{ contact.email }}    </th>
 			<th> <label> <input type="checkbox"> </label> </th>
 		</tr>
 	</tbody>
