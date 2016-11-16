@@ -1,0 +1,16 @@
+node_modules/
+*.tgz
+app/*.map
+app/*.js
+examples/counter/dist/components/*
+examples/counter/dist/containers/*
+examples/counter/dist/index.*
+.idea
+npm-debug.log
+examples/counter/typings/
+src/typings/
+typings/
+tmp/
+lib/
+.nyc_output/
+coverage/
