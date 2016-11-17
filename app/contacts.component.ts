@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   templateUrl: 'app/template/contacts.component.html',
   styleUrls: ['style/partials/contacts.component.css']
 })
+
 export class ContactsComponent {
   contacts: Contact[];
   constructor(){
@@ -15,7 +16,6 @@ export class ContactsComponent {
     new Contact(5, 'Pasha','Hevra','Minagel','058-321-12-34','pasha@gmail.com'),
   	]
   }  
-
 }
 
 export class Contact {
@@ -28,7 +28,7 @@ export class Contact {
 
 	constructor(id: number, name: string, 
 		company: string, position: string,
-		phone: string, email: string) {
+		phone: string, email: HTMLInputElement) {
 		this.id = id;
 		this.name = name;
 		this.company = company;

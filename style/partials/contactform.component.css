@@ -1,0 +1,15 @@
+.container {
+	background: #EFFBFB;
+}
+h2{
+	color: #08088A;
+}
+input{
+	margin-right: 20px;
+}
+.form-inline{
+	text-align: center;
+}
+button{
+	width: 80px;
+}
