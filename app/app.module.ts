@@ -5,6 +5,7 @@ import { NavComponent }  from './nav.component';
 import { ContactsComponent } from './contacts.component';
 import { ContactForm } from './contactform.component';
 import { FormsModule }   from '@angular/forms';
+import { Contact } from './contact';
 
 @NgModule({
   imports:      [ BrowserModule,

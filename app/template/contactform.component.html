@@ -1,25 +1,26 @@
+{{diagnostic}}
 <div class="container">
 	<h2>New contact</h2>
-	<form class="form-inline">
+	<form #contactForm="ngForm" class="form-inline" id="contactForm">
 	   <div class="form-group">
 			<label class="sr-only" for="name">Name</label>
-			<input type="text" class="form-control" id="name"  [(ngModel)]="model.name" name="name" placeholder="Name"> 
+			<input type="text" class="form-control" id="name"  [(ngModel)]="model.name" #name="ngModel" name="name" placeholder="Name" > 
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="company">Company</label>
-			<input type="text" class="form-control" id="company" required [(ngModel)]="model.company" name="company" placeholder="Company"> 
+			<input type="text" class="form-control" id="company" required [(ngModel)]="model.company" #company="ngModel" name="company" placeholder="Company"> 
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="position" >Position</label>
-			<input type="text" class="form-control" id="position" required [(ngModel)]="model.position" name="position" placeholder="Position"> 
+			<input type="text" class="form-control" id="position" required [(ngModel)]="model.position" #position="ngModel" name="position" placeholder="Position"> 
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="phone">Phone</label>
-			<input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone" placeholder="Phone">
+			<input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" #phone="ngModel" name="phone" placeholder="Phone">
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="inputEmail">Email</label>
-			<input type="email" class="form-control" id="email" required [(ngModel)]="model.email" name="email" placeholder="Email">
+			<input type="text" class="form-control" id="email" required [(ngModel)]="model.email" #email="ngModel" name="email" placeholder="Email">
 		</div>
 		<button type="submit" class="btn btn-primary" (click)="newContact()">Save</button>
 	</form>

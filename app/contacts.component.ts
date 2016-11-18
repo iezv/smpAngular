@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Contact } from './contact';
+
 @Component({
   selector: 'contacts',
   templateUrl: 'app/template/contacts.component.html',
@@ -6,7 +8,8 @@ import { Component } from '@angular/core';
 })
 
 export class ContactsComponent {
-  contacts: Contact[];
+  static contacts: Contact[];
+  
   constructor(){
   	this.contacts = [
     new Contact(1, 'Vasya','Google','HR','055-555-55-55','email@gmail.com'),
@@ -16,24 +19,11 @@ export class ContactsComponent {
     new Contact(5, 'Pasha','Hevra','Minagel','058-321-12-34','pasha@gmail.com'),
   	]
   }  
+
+  public getContacts(){
+    return this.contacts;
+  }
 }
 
-export class Contact {
-	id: number;
-	name: string;
-	company: string;
-	position: string;
-	phone: string;
-	email: string;
+  
 
-	constructor(id: number, name: string, 
-		company: string, position: string,
-		phone: string, email: HTMLInputElement) {
-		this.id = id;
-		this.name = name;
-		this.company = company;
-		this.position = position;
-		this.phone = phone;
-		this.email = email;
-	}
-}
