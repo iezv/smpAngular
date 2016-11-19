@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit }   from '@angular/core';
 import { Contact } from './contact';
+import { ContactListComponent } from './contact-list.component';
+
 
 export class ContactService {
 
@@ -18,9 +20,11 @@ export class ContactService {
   public getContacts(){
     return this.contacts;
   }
+
   public addContact(contact: Contact){
     this.contacts.push(contact);
   }
+ 
 }
 
 

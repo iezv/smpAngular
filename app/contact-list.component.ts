@@ -7,11 +7,12 @@ import { ContactService } from './contact.service';
 @Component({
   selector:    'contact-list',
   templateUrl: 'app/template/contact-list.component.html',
-  styleUrls: ['style/partials/contact-list.component.css'],
+  styleUrls:   ['style/partials/contact-list.component.css'],
   providers:  [ ContactService ]
 })
 
 export class ContactListComponent implements OnInit {
+
 	
 	contacts: Contact[];
 	selectedContact: Contact;
@@ -25,4 +26,5 @@ export class ContactListComponent implements OnInit {
 	selectContact(contact: Contact) {
 		this.selectedContact = contact; 
 	}
-}
+    
+ }
