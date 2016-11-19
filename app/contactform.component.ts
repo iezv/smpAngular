@@ -1,30 +1,33 @@
 import { Component } from '@angular/core';
-import { ContactsComponent } from './contacts.component';
+import { OnInit }        from '@angular/core';
 import { Contact } from './contact';
+import { ContactService } from './contact.service';
+import { ContactListComponent } from './contact-list.component';
 
 @Component({
 	//moduleId: module.id,
 	selector: 'contactform',
-	templateUrl: 'app/template/contactform.component.html',
-	styleUrls: ['style/partials/contactform.component.css']
+	providers: [ContactService],
+	templateUrl: '../app/template/contactform.component.html',
+	styleUrls: ['../style/partials/contactform.component.css']
 })
 
 export class ContactForm {
-    model = new Contact ();
+	newContact: Contact;
+	contactService: ContactService;
+  
 	submitted = false;
-	onSubmit(){this.submitted = true;}
+    onSubmit() { this.submitted = true; }
 
-	get diagnostic() 
-	{ return JSON.stringify(this.model); }
-
-	newContact() {
-		console.log('Add contact!!!');
-		console.log(this.model.name);
-		this.model = new Contact('', '','','','');
-		this.active = false;
-		setTimeout(() => this.active = true, 0);
-
+    ngOnInit(): any{
+	this.newContact = new Contact('','','','','');
 	}
+	 get diagnostic() { return JSON.stringify(this.newContact); }
 
+	 addContact(){
+	 	this.contactService.addContact (this.newContact);
+	 }
 }
+
+
 

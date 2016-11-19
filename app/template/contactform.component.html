@@ -1,27 +1,42 @@
 {{diagnostic}}
 <div class="container">
 	<h2>New contact</h2>
-	<form #contactForm="ngForm" class="form-inline" id="contactForm">
+	<form #contactForm="ngForm" (ngSubmit)="onSubmit()" class="form-inline" id="contactForm">
 	   <div class="form-group">
 			<label class="sr-only" for="name">Name</label>
-			<input type="text" class="form-control" id="name"  [(ngModel)]="model.name" #name="ngModel" name="name" placeholder="Name" > 
+			<input type="text" class="form-control" id="name" placeholder="Name" 
+			ngControl="name" 
+			[(ngModel)]="newContact.name" 
+			name="name" required > 
 		</div>
-		<div class="form-group">
+		<div class="form-group" class="form-group">
 			<label class="sr-only" for="company">Company</label>
-			<input type="text" class="form-control" id="company" required [(ngModel)]="model.company" #company="ngModel" name="company" placeholder="Company"> 
+			<input type="text" class="form-control" id="company" placeholder="Company" 
+			ngControl="company" 
+			[(ngModel)]="newContact.company" 
+			name="company" required > 
 		</div>
-		<div class="form-group">
+		<div class="form-group" class="form-group">
 			<label class="sr-only" for="position" >Position</label>
-			<input type="text" class="form-control" id="position" required [(ngModel)]="model.position" #position="ngModel" name="position" placeholder="Position"> 
+			<input type="text" class="form-control" placeholder="Position" id="position" 
+			ngControl="position" 
+			[(ngModel)]="newContact.position" 
+			name="position" required > 
 		</div>
-		<div class="form-group">
-			<label class="sr-only" for="phone">Phone</label>
-			<input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" #phone="ngModel" name="phone" placeholder="Phone">
+		<div class="form-group" class="form-group">
+			<label class="sr-only" for="phone" >Phone</label>
+			<input type="text" class="form-control" placeholder="Phone" id="phone" 
+			ngControl="phone" 
+			[(ngModel)]="newContact.phone"
+			name="phone" required>
 		</div>
-		<div class="form-group">
+		<div class="form-group" class="form-group">
 			<label class="sr-only" for="inputEmail">Email</label>
-			<input type="text" class="form-control" id="email" required [(ngModel)]="model.email" #email="ngModel" name="email" placeholder="Email">
+			<input type="text" class="form-control" placeholder="Email" id="phone" 
+			ngControl="phone" 
+			[(ngModel)]="newContact.email" 
+			name="email" required>
 		</div>
-		<button type="submit" class="btn btn-primary" (click)="newContact()">Save</button>
+		<button type="submit" class="btn btn-primary" (click)="addContact(newContact)">Save</button>
 	</form>
 </div>
