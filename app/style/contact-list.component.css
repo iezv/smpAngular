@@ -1,5 +1,10 @@
-.container {
+table{
+	margin-top: 30px;
+}
+
+#conform {
 	background: #EFFBFB;
+	margin-top: 20px;
 }
 h2{
 	color: #08088A;
@@ -9,7 +14,12 @@ input{
 }
 .form-inline{
 	text-align: center;
+
 }
-button{
+#save{
 	width: 80px;
+}
+
+.btt{
+	margin-top: 20px;
 }

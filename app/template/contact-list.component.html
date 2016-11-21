@@ -1,27 +1,79 @@
 
+<div class="container">
+	<div class="row">
+		<div class = "col-xs-6">
+			<h1>{{ title }}</h1>
+		</div>
+		<div class = "col-xs-6 text-right">
+			<button type="button" class="btn btn-primary btt">Add contact</button>
+			<button type="button" class="btn btn-primary btt">Open contact</button>
+			<button type="button" class="btn btn-primary btt">Delete contact</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class = "col-md-12">
 
-<table class="table table-striped" >
-	<thead>
-		<tr>
-			<th> #Contact </th>
-			<th> Name     </th>
-			<th> Company  </th>
-			<th> Position </th>
-			<th> Phone    </th>
-			<th> Email    </th>
-			<th> <label> <input type="checkbox"> </label> </th>
-		</tr>
-	</thead>
-	<tbody *ngIf="contacts.length > 0">
-		<tr *ngFor="let contact of contacts" >
-			<th >      contact.id       </th>
-			<th> {{ contact.name }}     </th>
-			<th> {{ contact.company }}  </th>
-			<th> {{ contact.position }} </th>
-			<th> {{ contact.phone }}    </th>
-			<th> {{ contact.email }}    </th>
-			<th> <label> <input type="checkbox"> </label> </th>
-		</tr>
-	</tbody>
-	
-</table>
+			<div class="container" id="conform">
+				<h2>New contact</h2>
+				<form class="form-inline" id="contactForm">
+					<div class="form-group">
+						<label class="sr-only" for="name">Name</label>
+						<input type="text" class="form-control" id="name" placeholder="Name" 
+						ngControl="name" 
+						name="name" required > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="company">Company</label>
+						<input type="text" class="form-control" id="company" placeholder="Company" 
+						ngControl="company" 
+						name="company" required > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="position" >Position</label>
+						<input type="text" class="form-control" placeholder="Position" id="position" 
+						ngControl="position" 
+						name="position" required > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="phone" >Phone</label>
+						<input type="text" class="form-control" placeholder="Phone" id="phone" 
+						ngControl="phone" 
+						name="phone" required>
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="inputEmail">Email</label>
+						<input type="text" class="form-control" placeholder="Email" id="phone" 
+						ngControl="phone" 
+						name="email" required>
+					</div>
+					<button id="save" type="submit" class="btn btn-primary" >Save</button>
+				</form>
+			</div>
+
+			<table class="table table-striped" >
+				<thead>
+					<tr>
+						<th> #Contact </th>
+						<th> Name     </th>
+						<th> Company  </th>
+						<th> Position </th>
+						<th> Phone    </th>
+						<th> Email    </th>
+						<th> <label> <input type="checkbox"> </label> </th>
+					</tr>
+				</thead>
+				<tbody *ngIf="contacts.length > 0">
+					<tr *ngFor="let contact of contacts" >
+						<th >      contact.id       </th>
+						<th> {{ contact.name }}     </th>
+						<th> {{ contact.company }}  </th>
+						<th> {{ contact.position }} </th>
+						<th> {{ contact.phone }}    </th>
+						<th> {{ contact.email }}    </th>
+						<th> <label> <input type="checkbox"> </label> </th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
