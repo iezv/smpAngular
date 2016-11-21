@@ -33,13 +33,10 @@ export class ContactsComponent {
 				this.contacts.splice(i,i);
 			}
 		}
-<<<<<<< HEAD
-=======
 	}
 
 	public showContact(){
 		console.log("Show contact!");
->>>>>>> c39437b7d8e63c870fe573a59c22c4a703e0639b
 	}
 
 	public addContact(){
