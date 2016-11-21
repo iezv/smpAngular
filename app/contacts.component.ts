@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { Contact } from './entities/contact';
+import { ContactListComponent } from './contacts/contact-list.component';
 
 @Component({
-	selector: 'contact-list',
-	templateUrl: 'app/template/contact-list.component.html',
-	styleUrls: ['app/style/contact-list.component.css']
+	selector: 'contacts',
+	templateUrl: 'app/template/contacts.component.html',
+	styleUrls: ['app/style/contacts.component.css']
 })
 
-export class ContactListComponent {
+export class ContactsComponent {
 	contacts: Contact[];
 	title: string;
 	model = new Contact(1, '', '', '', '','');

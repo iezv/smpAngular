@@ -1,4 +1,3 @@
-
 <div class="container">
 	<div class="row">
 		<div class = "col-xs-6">
@@ -56,30 +55,8 @@
 				</form>
 			</div>
 
-			<table class="table table-striped" >
-				<thead>
-					<tr>
-						<th> #Contact </th>
-						<th> Name     </th>
-						<th> Company  </th>
-						<th> Position </th>
-						<th> Phone    </th>
-						<th> Email    </th>
-						<th> <label> <input type="checkbox"> </label> </th>
-					</tr>
-				</thead>
-				<tbody *ngIf="contacts.length > 0">
-					<tr *ngFor="let contact of contacts" >
-						<th > {{  contact.id   }}    </th>
-						<th> {{ contact.name }}     </th>
-						<th> {{ contact.company }}  </th>
-						<th> {{ contact.position }} </th>
-						<th> {{ contact.phone }}    </th>
-						<th> {{ contact.email }}    </th>
-						<th> <label> <input type="checkbox"> </label> </th>
-					</tr>
-				</tbody>
-			</table>
+           <contact-list [contacts]="contacts"></contact-list>
+			
 		</div>
 	</div>
 </div>

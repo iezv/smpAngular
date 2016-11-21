@@ -5,14 +5,17 @@ import { Router }        from '@angular/router';
 import { OnInit }        from '@angular/core';
 import { AppComponent }   from './app.component';
 import { NavComponent }   from './nav.component';
-import { ContactListComponent }   from './contact-list.component';
+import { ContactsComponent }   from './contacts.component';
+import { ContactListComponent } from './contacts/contact-list.component';
 
 @NgModule({
   imports:      [ BrowserModule,
                   FormsModule ],
   declarations: [ AppComponent,
                   NavComponent,
-                  ContactListComponent ],
+                  ContactsComponent,
+                  ContactListComponent,
+                  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
