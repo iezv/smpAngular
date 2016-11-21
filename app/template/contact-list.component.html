@@ -16,37 +16,43 @@
 			<div class="container" id="conform">
 				<h2>New contact</h2>
 				<form class="form-inline" id="contactForm">
+				{{diagnostic}}
 					<div class="form-group">
 						<label class="sr-only" for="name">Name</label>
 						<input type="text" class="form-control" id="name" placeholder="Name" 
 						ngControl="name" 
+						[(ngModel)]="model.name"
 						name="name" required > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="company">Company</label>
 						<input type="text" class="form-control" id="company" placeholder="Company" 
 						ngControl="company" 
+						[(ngModel)]="model.company"
 						name="company" required > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="position" >Position</label>
 						<input type="text" class="form-control" placeholder="Position" id="position" 
 						ngControl="position" 
+						[(ngModel)]="model.position"
 						name="position" required > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="phone" >Phone</label>
 						<input type="text" class="form-control" placeholder="Phone" id="phone" 
 						ngControl="phone" 
+						[(ngModel)]="model.phone"
 						name="phone" required>
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="inputEmail">Email</label>
 						<input type="text" class="form-control" placeholder="Email" id="phone" 
-						ngControl="phone" 
+						ngControl="email" 
+						[(ngModel)]="model.email"
 						name="email" required>
 					</div>
-					<button id="save" type="submit" class="btn btn-primary" >Save</button>
+					<button id="save" type="submit" class="btn btn-primary" (click)="addContact()">Save</button>
 				</form>
 			</div>
 
@@ -64,7 +70,7 @@
 				</thead>
 				<tbody *ngIf="contacts.length > 0">
 					<tr *ngFor="let contact of contacts" >
-						<th >      contact.id       </th>
+						<th > {{  contact.id   }}    </th>
 						<th> {{ contact.name }}     </th>
 						<th> {{ contact.company }}  </th>
 						<th> {{ contact.position }} </th>

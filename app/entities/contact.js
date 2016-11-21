@@ -1,11 +1,13 @@
 "use strict";
 var Contact = (function () {
-    function Contact(name, company, position, phone, email) {
+    function Contact(id, name, company, position, phone, email) {
+        this.id = id;
         this.name = name;
         this.company = company;
         this.position = position;
         this.phone = phone;
         this.email = email;
+        this.id = id;
         this.name = name;
         this.company = company;
         this.position = position;
