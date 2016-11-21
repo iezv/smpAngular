@@ -11,8 +11,8 @@ export class ContactListComponent {
 	contacts: Contact[];
 	title: string;
 	model = new Contact(1, '', '', '', '','');
-    submitted = false;
-
+	showForm = true;
+    
 	constructor(){
 		this.title = "Contacts";
 		this.contacts = [
@@ -24,19 +24,22 @@ export class ContactListComponent {
 		];
 	}
 
+	public showFormNewContact(){
+		this.showForm = false;
+	}
+
 	public getContacts(){
 		return this.contacts;
 	}
 
-	onSubmit() { this.submitted = true; }
-
+	active = true;
 		
 	public addContact(){
 		console.log("Add contact!");
 		this.contacts.push(new Contact(this.contacts.length+1, this.model.name, 
 			this.model.company, this.model.position,this.model.phone,this.model.email)); 
 		this.model = new Contact(1, '', '', '', '','');
-
+		this.showForm = true;
 	}
 
 }
