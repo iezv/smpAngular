@@ -4,10 +4,20 @@ table{
 .form-inline{
 	text-align: center;
 }
-button{
-	margin-top: 20px;
-}
 .form-inline{
 	text-align: center;
-
+}
+th{
+	text-align: center;
+}
+.th-contact{
+  font-weight: 100;
+}
+#view-cont{
+	height: 30px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.marking{
+	text-decoration: line-through;
 }

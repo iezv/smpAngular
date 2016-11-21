@@ -31,10 +31,12 @@ export class ContactsComponent {
 
 	public delContact(){
 		console.log("Delete contact!");
-	}
-
-	public showContact(){
-		console.log("Show contact!");
+		var i=0;
+		for(i=0; i<this.contacts.length; i++){
+			if (this.contacts[i].marking==true){
+				this.contacts.splice(i,i);
+			}
+		}
 	}
 
 	public addContact(){

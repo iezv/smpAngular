@@ -7,12 +7,7 @@ var Contact = (function () {
         this.position = position;
         this.phone = phone;
         this.email = email;
-        this.id = id;
-        this.name = name;
-        this.company = company;
-        this.position = position;
-        this.phone = phone;
-        this.email = email;
+        this.marking = false;
     }
     return Contact;
 }());
