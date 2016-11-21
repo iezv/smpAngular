@@ -28,12 +28,14 @@ export class ContactListComponent {
 		this.showForm = false;
 	}
 
-	public getContacts(){
-		return this.contacts;
+	public delContact(){
+		console.log("Delete contact!");
 	}
 
-	active = true;
-		
+	public showContact(){
+		console.log("Show contact!");
+	}
+
 	public addContact(){
 		console.log("Add contact!");
 		this.contacts.push(new Contact(this.contacts.length+1, this.model.name, 
