@@ -9,4 +9,10 @@ selector: 'contact-list',
 
 export class ContactListComponent{
 	@Input() contacts: Contact[];
+    
+	toggleMarking(contact: Contact){
+		console.log(contact.marking);
+		contact.marking = !contact.marking;
+
+	}
 }

@@ -12,6 +12,10 @@ var core_1 = require('@angular/core');
 var ContactListComponent = (function () {
     function ContactListComponent() {
     }
+    ContactListComponent.prototype.toggleMarking = function (contact) {
+        console.log(contact.marking);
+        contact.marking = !contact.marking;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

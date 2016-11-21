@@ -13,7 +13,7 @@ export class ContactsComponent {
 	title: string;
 	model = new Contact(1, '', '', '', '','');
 	showForm = true;
-    
+
 	constructor(){
 		this.title = "Contacts";
 		this.contacts = [
@@ -25,12 +25,14 @@ export class ContactsComponent {
 		];
 	}
 
-	public showFormNewContact(){
-		this.showForm = false;
-	}
-
 	public delContact(){
 		console.log("Delete contact!");
+		var i=0;
+		for(i=0; i<this.contacts.length; i++){
+			if (this.contacts[i].marking==true){
+				this.contacts.splice(i,i);
+			}
+		}
 	}
 
 	public showContact(){
