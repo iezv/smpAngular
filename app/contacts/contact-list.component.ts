@@ -9,11 +9,7 @@ selector: 'contact-list',
 
 export class ContactListComponent{
 	@Input() contacts: Contact[];
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> c39437b7d8e63c870fe573a59c22c4a703e0639b
 	toggleMarking(contact: Contact){
 		console.log(contact.marking);
 		contact.marking = !contact.marking;
