@@ -25,6 +25,11 @@ export class ContactsComponent {
 		];
 	}
 
+	public showFormNewContact(){
+		console.log("New contact!");
+		this.showForm = false;
+	}
+
 	public delContact(){
 		console.log("Delete contact!");
 		var i=0;
