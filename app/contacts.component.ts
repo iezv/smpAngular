@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from './entities/contact';
-import { ContactListComponent } from './contacts/contact-list.component';
+
 
 @Component({
 	selector: 'contacts',
@@ -13,6 +13,7 @@ export class ContactsComponent {
 	title: string;
 	model = new Contact(1, '', '', '', '','');
 	showForm = true;
+	showViewForm = true;
 
 	constructor(){
 		this.title = "Contacts";
@@ -27,29 +28,35 @@ export class ContactsComponent {
 
 	public showFormNewContact(){
 		console.log("New contact!");
-		this.showForm = false;
-	}
-
-	public delContact(){
-		console.log("Delete contact!");
-		var i=0;
-		for(i=0; i<this.contacts.length; i++){
-			if (this.contacts[i].marking==true){
-				this.contacts.splice(i,i);
-			}
+		if (this.showForm == true){
+			this.showForm = false;
+		} else {
+			this.showForm = true;
 		}
 	}
 
-	public showContact(){
+	public delContact(i){
+		console.log("Delete contact!");
+		this.contacts.splice(i, 1);
+	}
+
+	public showContact(i){
 		console.log("Show contact!");
 	}
 
 	public addContact(){
 		console.log("Add contact!");
+		if (this.model.name!=null){
 		this.contacts.push(new Contact(this.contacts.length+1, this.model.name, 
 			this.model.company, this.model.position,this.model.phone,this.model.email)); 
+        }
 		this.model = new Contact(1, '', '', '', '','');
 		this.showForm = true;
+	}
+
+	public updateContact(){
+		console.log("Update contact!");
+		this.showViewForm = true;
 	}
 
 }

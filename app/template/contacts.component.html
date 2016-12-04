@@ -4,8 +4,7 @@
 			<h1>{{ title }}</h1>
 		</div>
 		<div class = "col-xs-6 text-right">
-			<button type="button" class="btn btn-primary btt" (click)="showFormNewContact()">Add contact</button>
-			<button type="button" class="btn btn-primary btt" (click)="delContact()">Delete contact</button>
+			<button type="button" class="btn btn-primary btt" (click)="showFormNewContact()">{{ showForm ? "Add contact" : "Cancel" }}</button>
 		</div>
 	</div>
 	<div class="row">
@@ -17,35 +16,35 @@
 
 					<div class="form-group">
 						<label class="sr-only" for="name">Name</label>
-						<input type="text" class="form-control" id="name" placeholder="Name" 
+						<input type="text" class="form-control"  placeholder="Name" 
 						ngControl="name" 
 						[(ngModel)]="model.name"
 						name="name"  > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="company">Company</label>
-						<input type="text" class="form-control" id="company" placeholder="Company" 
+						<input type="text" class="form-control"  placeholder="Company" 
 						ngControl="company" 
 						[(ngModel)]="model.company"
 						name="company"  > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="position" >Position</label>
-						<input type="text" class="form-control" placeholder="Position" id="position" 
+						<input type="text" class="form-control" placeholder="Position"  
 						ngControl="position" 
 						[(ngModel)]="model.position"
 						name="position"  > 
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="phone" >Phone</label>
-						<input type="text" class="form-control" placeholder="Phone" id="phone" 
+						<input type="text" class="form-control" placeholder="Phone"  
 						ngControl="phone" 
 						[(ngModel)]="model.phone"
 						name="phone" >
 					</div>
 					<div class="form-group" class="form-group">
 						<label class="sr-only" for="inputEmail">Email</label>
-						<input type="text" class="form-control" placeholder="Email" id="phone" 
+						<input type="text" class="form-control" placeholder="Email"  
 						ngControl="email" 
 						[(ngModel)]="model.email"
 						name="email" >
@@ -53,8 +52,84 @@
 					<button id="save" type="submit" class="btn btn-primary" (click)="addContact()">Save</button>
 				</form>
 			</div>
+			<div class="row">
+		<div class = "col-md-12">
 
-           <contact-list [contacts]="contacts"></contact-list>
+			<div class="container" id="conform" [hidden]="showViewForm">
+				<h2>View & edit contact</h2>
+				<form class="form-inline" id="contactViewForm">
+					<div class="form-group">
+						<label class="sr-only" for="name">Name</label>
+						<input type="text" class="form-control"  placeholder="Name" 
+						ngControl="name" 
+						[(ngModel)]="model.name"
+						name="name"  > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="company">Company</label>
+						<input type="text" class="form-control"  placeholder="Company" 
+						ngControl="company" 
+						[(ngModel)]="model.company"
+						name="company"  > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="position" >Position</label>
+						<input type="text" class="form-control" placeholder="Position"  
+						ngControl="position" 
+						[(ngModel)]="model.position"
+						name="position"  > 
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="phone" >Phone</label>
+						<input type="text" class="form-control" placeholder="Phone"  
+						ngControl="phone" 
+						[(ngModel)]="model.phone"
+						name="phone" >
+					</div>
+					<div class="form-group" class="form-group">
+						<label class="sr-only" for="inputEmail">Email</label>
+						<input type="text" class="form-control" placeholder="Email"  
+						ngControl="email" 
+						[(ngModel)]="model.email"
+						name="email" >
+					</div>
+					<button id="save" type="submit" class="btn btn-primary" (click)="updateContact()">Save</button>
+				</form>
+			</div>
+			<hr />
+
+<table class="table table-striped" >
+	<thead>
+		<tr>
+			<th> #Contact </th>
+			<th> Name     </th>
+			<th> Company  </th>
+			<th> Position </th>
+			<th> Phone    </th>
+			<th> Email    </th>
+			<th> View & edit </th>
+			<th> Delete    </th>
+		</tr>
+	</thead>
+	<tbody *ngIf="contacts.length > 0; let i = index">
+		<tr *ngFor="let contact of contacts">
+			<th class="th-contact"> {{  contact.id   }}    </th>
+			<th class="th-contact"> {{ contact.name }}     </th>
+			<th class="th-contact"> {{ contact.company }}  </th>
+			<th class="th-contact"> {{ contact.position }} </th>
+			<th class="th-contact"> {{ contact.phone }}    </th>
+			<th class="th-contact"> {{ contact.email }}    </th>
+			<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="showContact(i)">
+			     <i class="fa fa-address-card-o" aria-hidden="true"></i></button>
+			</th>
+			<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="delContact(i)">
+			     <i class="fa fa-trash" aria-hidden="true"></i></button>
+			</th>
+		</tr>
+	</tbody>
+</table>
+
+         <!--  <contact-list [contacts]="contacts"></contact-list>-->
 			
 		</div>
 	</div>

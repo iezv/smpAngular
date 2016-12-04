@@ -6,8 +6,17 @@ export class Contact {
 		public position: string;
 		public phone: string; 
 		public email: string;
-		public marking: boolean;
-	
+				
+		
+		public firstname: string;
+		public lastname: string;
+		public address: address;
+		public phones: phones;
+		public emails: emails;
+		public skype: string;
+        public comment: string;
+
+
 	constructor(
 		id: number, 
 		name: string, 
@@ -22,7 +31,27 @@ export class Contact {
 		this.position = position;
 		this.phone = phone;
 		this.email = email;
-		this.marking = false;
 	}
 
+}
+
+interface address {
+	city: string;
+	street: string;
+	bld: string;
+	appart: string;
+	postcode: string;
+}
+
+interface phones{
+	prime: string;
+	mobile: string;
+	work: string;
+	fax: string;
+	other: string;
+}
+
+interface emails{
+    email1: string;
+    email2: string;
 }

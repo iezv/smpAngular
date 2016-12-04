@@ -19,3 +19,17 @@ input{
 .btt{
 	margin-top: 20px;
 }
+table{
+	margin-top: 30px;
+}
+th{
+	text-align: center;
+}
+.th-contact{
+  font-weight: 100;
+}
+#view-cont{
+	height: 30px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
