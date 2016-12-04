@@ -14,7 +14,7 @@ import { ContactsComponent }   from './contacts.component';
   declarations: [ AppComponent,
                   NavComponent,
                   ContactsComponent,
-                  
+              
                   ],
   bootstrap:    [ AppComponent ]
 })

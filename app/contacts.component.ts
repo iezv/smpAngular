@@ -11,7 +11,7 @@ import { Address } from './entities/address';
 export class ContactsComponent {
 	contacts: Contact[];
 	title: string;
-	model = new Contact(1, '', '', '', '',new Address(0,'','','',''),
+	model = new Contact(1, '', '', '', '',new Address(84000,'','','',''),
 		new Phones('','','','',''), new Emails('',''),'','');
 	showForm = true;
 	showViewForm = true;

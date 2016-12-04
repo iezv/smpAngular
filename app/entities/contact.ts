@@ -1,8 +1,8 @@
 import { Address } from './address';
 
 export class Contact {
-	    public id:        number; 
-		public firstname: string;
+	    public id: number;
+	  	public firstname: string;
 		public lastname:  string;
 		public company:   string; 
 		public position:  string;
@@ -14,7 +14,7 @@ export class Contact {
 
 
 	constructor(
-		id: number, 
+		id: number,
 		firstname: string, 
 		lastname: string,
 		company: string, 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class = "col-xs-12">
 			<h1>{{ title }}</h1>
@@ -10,47 +10,135 @@
 	<div class="row">
 		<div class = "col-md-12">
 
-			<div class="container" id="conform" [hidden]="showForm">
+			<div class="container-fluid" id="conform" [hidden]="showForm">
+
 				<h2>New contact</h2>
-				<form class="form-inline" id="contactForm">
-					<div class="form-group">
-						<label class="sr-only" for="name">First Name</label>
-						<input type="text" class="form-control"  placeholder="First name" 
-						[(ngModel)]="model.firstname"
-						name="firstname"  > 
+				<form class="form-horizontal text-center" id="contactForm">
+
+					<div class="row center-block text-center">
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="name">First Name</label>
+							<input type="text" class="form-control"  placeholder="First name" 
+							[(ngModel)]="model.firstname"
+							name="firstname"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="name">Last Name</label>
+							<input type="text" class="form-control"  placeholder="Last name" 
+							[(ngModel)]="model.lastname"
+							name="lastname"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont" >
+							<label class="sr-only" for="company">Company</label>
+							<input type="text" class="form-control"  placeholder="Company" 
+							[(ngModel)]="model.company"
+							name="company"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="position" >Position</label>
+							<input type="text" class="form-control" placeholder="Position"  
+							[(ngModel)]="model.position"
+							name="position"  > 
+						</div>
 					</div>
-					<div class="form-group">
-						<label class="sr-only" for="name">Last Name</label>
-						<input type="text" class="form-control"  placeholder="Last name" 
-						[(ngModel)]="model.lastname"
-						name="lastname"  > 
+
+					<div><p>Address</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="postcode" >Postcode</label>
+							<input type="text" class="form-control" placeholder="Post code"  
+							[(ngModel)]="model.address.postcode"
+							name="postcode" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="city" >City</label>
+							<input type="text" class="form-control" placeholder="City"  
+							[(ngModel)]="model.address.city"
+							name="city" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont">
+							<label class="sr-only" for="street" >Street</label>
+							<input type="text" class="form-control" placeholder="Street"
+							[(ngModel)]="model.address.street"
+							name="street" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont">
+							<label class="sr-only" for="bld" >Building</label>
+							<input type="text" class="form-control" placeholder="Building"
+							[(ngModel)]="model.address.bld"
+							name="bld" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont">
+							<label class="sr-only" for="appart" >Apartment</label>
+							<input type="text" class="form-control" placeholder="Apartment"
+							[(ngModel)]="model.address.appart"
+							name="appart" >
+						</div>
 					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="company">Company</label>
-						<input type="text" class="form-control"  placeholder="Company" 
-						[(ngModel)]="model.company"
-						name="company"  > 
+					<div><p>Phones</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="prime" >Prime phone</label>
+							<input type="text" class="form-control" placeholder="Prime phone"  
+							[(ngModel)]="model.phones.prime"
+							name="prime" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="mobile" >Mobile phone</label>
+							<input type="text" class="form-control" placeholder="Mobile phone"  
+							[(ngModel)]="model.phones.mobile"
+							name="mobile" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="work" >Work phone</label>
+							<input type="text" class="form-control" placeholder="Work phone"  
+							[(ngModel)]="model.phones.work"
+							name="work" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="fax" >Fax</label>
+							<input type="text" class="form-control" placeholder="Fax"  
+							[(ngModel)]="model.phones.fax"
+							name="fax" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="other" >Other phone</label>
+							<input type="text" class="form-control" placeholder="Other phone"  
+							[(ngModel)]="model.phones.other"
+							name="other" >
+						</div>
 					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="position" >Position</label>
-						<input type="text" class="form-control" placeholder="Position"  
-						[(ngModel)]="model.position"
-						name="position"  > 
+					<div><p>Emails, skype</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="inputEmail">Email1</label>
+							<input type="text" class="form-control" placeholder="Prime email"  
+							[(ngModel)]="model.emails.email1"
+							name="email1" >
+						</div>
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="inputEmail">Email2</label>
+							<input type="text" class="form-control" placeholder="Other email"  
+							[(ngModel)]="model.emails.email2"
+							name="email2" >
+						</div>
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="skype">Skype</label>
+							<input type="text" class="form-control" placeholder="Skype"  
+							[(ngModel)]="model.skype"
+							name="skype" >
+						</div>
 					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="phone" >Phone</label>
-						<input type="text" class="form-control" placeholder="Phone"  
-						ngControl="phone" 
-						[(ngModel)]="model.phones.prime"
-						name="phone" >
+					<div class="row center-block">
+						<div><p>Comment</p></div>
+						<div class="form-group col-sm-12 formcont">
+							<textarea class="form-control" name="comment" rows="3" placeholder="Comment" 
+							[(ngModel)]="model.comment"></textarea>
+						</div>
 					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="inputEmail">Email</label>
-						<input type="text" class="form-control" placeholder="Email"  
-						[(ngModel)]="model.emails.email1"
-						name="email" >
+					<div class="row center-block">
+						<button id="save" type="submit" class="btn btn-primary" (click)="addContact()">Save</button>
 					</div>
-					<button id="save" type="submit" class="btn btn-primary" (click)="addContact()">Save</button>
 				</form>
 			</div>
 		</div>
@@ -58,49 +146,135 @@
 	<div class="row">
 		<div class = "col-md-12">
 
-			<div class="container" id="conform" [hidden]="showViewForm">
+			<div class="container-fluid" id="conform" [hidden]="showViewForm">
 				<h2>View & edit contact</h2>
-				<form class="form-inline" id="contactForm">
-					<div class="form-group">
-						<label class="sr-only" for="name">First Name</label>
-						<input type="text" class="form-control"  placeholder="First name" 
-						[(ngModel)]="model.firstname"
-						name="firstname"  > 
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="name">Last Name</label>
-						<input type="text" class="form-control"  placeholder="Last name" 
-						[(ngModel)]="model.lastname"
-						name="lastname"  > 
-					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="company">Company</label>
-						<input type="text" class="form-control"  placeholder="Company" 
-						[(ngModel)]="model.company"
-						name="company"  > 
-					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="position" >Position</label>
-						<input type="text" class="form-control" placeholder="Position"  
-						[(ngModel)]="model.position"
-						name="position"  > 
-					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="phone" >Phone</label>
-						<input type="text" class="form-control" placeholder="Phone"  
-						ngControl="phone" 
-						[(ngModel)]="model.phones.prime"
-						name="phone" >
-					</div>
-					<div class="form-group" class="form-group">
-						<label class="sr-only" for="inputEmail">Email</label>
-						<input type="text" class="form-control" placeholder="Email"  
-						[(ngModel)]="model.emails.email1"
-						name="email" >
-					</div>
-					<button id="save" type="submit" class="btn btn-primary" (click)="viewContact()">Save</button>
-				</form>
+				<form class="form-horizontal text-center" id="contactForm">
 
+					<div class="row center-block text-center">
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="name">First Name</label>
+							<input type="text" class="form-control"  placeholder="First name" 
+							[(ngModel)]="model.firstname"
+							name="firstname"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="name">Last Name</label>
+							<input type="text" class="form-control"  placeholder="Last name" 
+							[(ngModel)]="model.lastname"
+							name="lastname"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont" >
+							<label class="sr-only" for="company">Company</label>
+							<input type="text" class="form-control"  placeholder="Company" 
+							[(ngModel)]="model.company"
+							name="company"  > 
+						</div>
+						<div class="form-group col-lg-3 col-md-6 formcont">
+							<label class="sr-only" for="position" >Position</label>
+							<input type="text" class="form-control" placeholder="Position"  
+							[(ngModel)]="model.position"
+							name="position"  > 
+						</div>
+					</div>
+
+					<div><p>Address</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="postcode" >Postcode</label>
+							<input type="text" class="form-control" placeholder="Post code"  
+							[(ngModel)]="model.address.postcode"
+							name="postcode" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="city" >City</label>
+							<input type="text" class="form-control" placeholder="City"  
+							[(ngModel)]="model.address.city"
+							name="city" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont">
+							<label class="sr-only" for="street" >Street</label>
+							<input type="text" class="form-control" placeholder="Street"
+							[(ngModel)]="model.address.street"
+							name="street" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont">
+							<label class="sr-only" for="bld" >Building</label>
+							<input type="text" class="form-control" placeholder="Building"
+							[(ngModel)]="model.address.bld"
+							name="bld" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont">
+							<label class="sr-only" for="appart" >Apartment</label>
+							<input type="text" class="form-control" placeholder="Apartment"
+							[(ngModel)]="model.address.appart"
+							name="appart" >
+						</div>
+					</div>
+					<div><p>Phones</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="prime" >Prime phone</label>
+							<input type="text" class="form-control" placeholder="Prime phone"  
+							[(ngModel)]="model.phones.prime"
+							name="prime" >
+						</div>
+						<div class="form-group col-lg-3 col-md-4 formcont" >
+							<label class="sr-only" for="mobile" >Mobile phone</label>
+							<input type="text" class="form-control" placeholder="Mobile phone"  
+							[(ngModel)]="model.phones.mobile"
+							name="mobile" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="work" >Work phone</label>
+							<input type="text" class="form-control" placeholder="Work phone"  
+							[(ngModel)]="model.phones.work"
+							name="work" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="fax" >Fax</label>
+							<input type="text" class="form-control" placeholder="Fax"  
+							[(ngModel)]="model.phones.fax"
+							name="fax" >
+						</div>
+						<div class="form-group col-lg-2 col-md-4 formcont" >
+							<label class="sr-only" for="other" >Other phone</label>
+							<input type="text" class="form-control" placeholder="Other phone"  
+							[(ngModel)]="model.phones.other"
+							name="other" >
+						</div>
+					</div>
+					<div><p>Emails, skype</p></div>
+					<div class="row center-block">
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="inputEmail">Email1</label>
+							<input type="text" class="form-control" placeholder="Prime email"  
+							[(ngModel)]="model.emails.email1"
+							name="email1" >
+						</div>
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="inputEmail">Email2</label>
+							<input type="text" class="form-control" placeholder="Other email"  
+							[(ngModel)]="model.emails.email2"
+							name="email2" >
+						</div>
+						<div class="form-group col-lg-4 col-md-4 formcont">
+							<label class="sr-only" for="skype">Skype</label>
+							<input type="text" class="form-control" placeholder="Skype"  
+							[(ngModel)]="model.skype"
+							name="skype" >
+						</div>
+					</div>
+					<div class="row center-block">
+						<div><p>Comment</p></div>
+						<div class="form-group col-sm-12 formcont">
+							<textarea class="form-control" name="comment" rows="3" placeholder="Comment" 
+							[(ngModel)]="model.comment"></textarea>
+						</div>
+					</div>
+					<div class="row center-block">
+					<button id="save" type="submit" class="btn btn-primary" (click)="updateContact()">Save</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -119,9 +293,9 @@
 						<th> Delete              </th>
 					</tr>
 				</thead>
-				<tbody *ngIf="contacts.length > 0; let i = index">
-					<tr *ngFor="let contact of contacts">
-						<th class="th-contact"> {{  contact.id   }}                             </th>
+				<tbody *ngIf="contacts.length > 0">
+					<tr *ngFor="let contact of contacts; let i = index">
+						<th class="th-contact"> {{  i+1  }}                             </th>
 						<th class="th-contact"> {{ contact.firstname }} {{ contact.lastname }} </th>
 						<th class="th-contact"> {{ contact.company }}, {{ contact.position }}   </th>
 						<th class="th-contact"> {{ contact.phones.prime }}                      </th>
