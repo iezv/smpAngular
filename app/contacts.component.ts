@@ -82,7 +82,7 @@ export class ContactsComponent {
 			new Emails (this.model.emails.email1,
 				        this.model.emails.email2),
 			            this.model.skype,
-			            this.model.comment); 
+			            this.model.comment)); 
         
 		this.model = new Contact(1, '', '', '', '',new Address(0,'','','',''),
 		new Phones('','','','',''), new Emails('',''),'','');
