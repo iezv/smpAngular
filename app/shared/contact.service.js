@@ -24,6 +24,7 @@ var ContactService = (function () {
             .catch(this.handleError);
     };
     ContactService.prototype.addContact = function (contact) {
+        console.log(contact);
         return this.post(contact);
     };
     ContactService.prototype.updateContact = function (contact) {
@@ -34,12 +35,13 @@ var ContactService = (function () {
     };
     ContactService.prototype.post = function (contact) {
         var body = JSON.stringify(contact);
+        console.log(body);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.apiUrl, body, options)
             .toPromise()
-            .then(function (res) { return res.json().data; });
-        //.catch(this.handleError)
+            .then(function (res) { return contact; })
+            .catch(this.handleError);
     };
     ContactService.prototype.put = function (contact) {
         var body = JSON.stringify(contact);

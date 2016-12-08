@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { Router }        from '@angular/router';
 import { OnInit }        from '@angular/core';
-import { HttpModule, Http }    from  '@angular/http';
+import { HttpModule, Http, JsonpModule }    from  '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { ContactSeedData } from './shared/contact.data';
@@ -20,7 +20,7 @@ import { ContactService } from './shared/contact.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpModule, 
+  imports:      [ BrowserModule, FormsModule, HttpModule, JsonpModule,
                   InMemoryWebApiModule.forRoot(ContactSeedData)],
   declarations: [ AppComponent,  NavComponent, ContactsComponent,
                   ContactListComponent, 

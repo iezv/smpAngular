@@ -24,6 +24,11 @@ var ContactsComponent = (function () {
     };
     ContactsComponent.prototype.onContactCreated = function (contact) {
         var _this = this;
+        if (contact.id == 0 || contact.id == null || contact.firstname == '' || contact.firstname == null) {
+            this.showformnewcomtact();
+            return;
+        }
+        console.log(contact);
         this.contactService.addContact(contact).then(function (contact) { return _this.addContact(contact); });
     };
     ContactsComponent.prototype.onContactUpdated = function (contact) {
@@ -43,6 +48,7 @@ var ContactsComponent = (function () {
     };
     ContactsComponent.prototype.addContact = function (contact) {
         this.contacts.push(contact);
+        this.showformnewcomtact();
     };
     ContactsComponent.prototype.deleteContact = function (contact) {
         var index = this.contacts.indexOf(contact);

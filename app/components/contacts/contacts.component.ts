@@ -18,21 +18,26 @@ export class ContactsComponent implements OnInit {
 	contacts: IContact[];
 	showForm: boolean;
     showViewForm: boolean;
-	title: string;
+    title: string;
 
-	constructor(private contactService: ContactService){
-     	this.title = "Contacts";
+    constructor(private contactService: ContactService){
+        this.title = "Contacts";
         this.showForm = true;
         this.showViewForm=true;
-		this.contacts = [];
-	}
-	
-	ngOnInit() {
-		this.contactService.getContacts().then(contacts => this.contacts = contacts);
-	}
+        this.contacts = [];
+    }
+
+    ngOnInit() {
+        this.contactService.getContacts().then(contacts => this.contacts = contacts);
+    }
     
     onContactCreated(contact: IContact): void {
-        this.contactService.addContact(contact).then(contact => this.addContact(contact));
+        if (contact.id == 0 || contact.id ==null || contact.firstname == '' || contact.firstname ==null)
+             { this.showformnewcomtact();
+                 return; }
+            console.log(contact);
+            this.contactService.addContact(contact).then(contact => this.addContact(contact));
+        
     }
 
     onContactUpdated(contact: IContact): void {
@@ -53,6 +58,7 @@ export class ContactsComponent implements OnInit {
 
     private addContact(contact: IContact): void {
         this.contacts.push(contact);
+        this.showformnewcomtact();
     }
 
     private deleteContact(contact: IContact): void {
