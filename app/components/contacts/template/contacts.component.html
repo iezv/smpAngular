@@ -1,0 +1,27 @@
+	<div class="row">
+		<div class = "col-md-12">
+			<div class="container-fluid" id="conform">
+				 <new-contact [hidden]="showForm" (created)="onContactCreated($event)"></new-contact>
+			</div>
+		</div>
+	</div>	
+	<div class="row">
+		<div class = "col-xs-12">
+			<h1>{{ title }}</h1>
+		</div>
+		<div class = "col-xs-12 text-right">
+			<button type="button" class="btn btn-primary btt" (click)="showformnewcomtact()">Add contact</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class = "col-md-12">
+			<div class="container-fluid" id="conform">
+				<show-contact [hidden]="showViewForm"></show-contact>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class = "col-md-12">
+	   		<contact-list [contacts]="contacts" (toggled)="onContactToggled($event)" (deleted)="onContactDeleted($event)"></contact-list>
+	   	</div>
+	</div>

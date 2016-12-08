@@ -1,0 +1,34 @@
+<div class="row">
+		<div class = "col-xs-12">
+			<table class="table table-striped" >
+				<thead>
+					<tr>
+						<th> #Contact </th>
+						<th> Firs & last names   </th>
+						<th> Company & position  </th>
+						<th> Prime phone         </th>
+						<th> Prime email         </th>
+						<th> View & edit         </th>
+						<th> Delete              </th>
+					</tr>
+				</thead>
+				<tbody *ngIf="contacts.length >0">
+				    <tr *ngFor="let contact of contacts; let i = index">
+						<th class="th-contact"> {{  i+1  }} </th>
+						<th class="th-contact"> {{ contact.firstname }} {{ contact.lastname }} </th>
+						<th class="th-contact"> {{ contact.company }}, {{ contact.position }}   </th>
+						<th class="th-contact"> {{ contact.phones.prime }}                      </th>
+						<th class="th-contact"> {{ contact.emails.email1 }}    </th>
+						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" >
+						<!--(click)="showContact(i)"-->
+							<i class="fa fa-address-card-o" aria-hidden="true"></i></button>
+						</th>
+						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" >
+						<!--(click)="deleteContact(i)"-->
+							<i class="fa fa-trash" aria-hidden="true"></i></button>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+	  </div>
+</div> 
