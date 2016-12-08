@@ -9,26 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var contact_service_1 = require('../../../shared/contact.service');
 var ContactListComponent = (function () {
-    function ContactListComponent() {
+    function ContactListComponent(contactService) {
+        this.contactService = contactService;
         this.showViewForm = true;
-        this.toggled = new core_1.EventEmitter();
         this.deleted = new core_1.EventEmitter();
     }
-    ContactListComponent.prototype.onContactToggled = function (contact) {
-        this.toggled.emit(contact);
-    };
     ContactListComponent.prototype.onContactDeleted = function (contact) {
-        this.toggled.emit(contact);
+        this.deleted.emit(contact);
+    };
+    ContactListComponent.prototype.deleteContact = function (i) {
+        console.log('Delete contact');
+        this.contacts.splice(i, 1);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
     ], ContactListComponent.prototype, "contacts", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], ContactListComponent.prototype, "toggled", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
@@ -39,7 +37,7 @@ var ContactListComponent = (function () {
             templateUrl: './app/components/contacts/contact-list/template/contact-list.component.html',
             styleUrls: ['./app/components/contacts/contact-list/style/contact-list.component.css'],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [contact_service_1.ContactService])
     ], ContactListComponent);
     return ContactListComponent;
 }());

@@ -16,14 +16,12 @@ import { ShowContactComponent } from './contact-form/showcontact.component';
 
 export class ContactsComponent implements OnInit {
 	contacts: IContact[];
-	contactService: ContactService;
-    showForm: boolean;
+	showForm: boolean;
     showViewForm: boolean;
 	title: string;
 
-	constructor(contactService: ContactService){
-        this.contactService = contactService;
-		this.title = "Contacts";
+	constructor(private contactService: ContactService){
+     	this.title = "Contacts";
         this.showForm = true;
         this.showViewForm=true;
 		this.contacts = [];

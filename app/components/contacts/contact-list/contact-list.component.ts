@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.model';
+import { ContactService } from '../../../shared/contact.service';
 
 @Component({
 	selector: 'contact-list',
@@ -9,20 +10,20 @@ import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.mo
 
 export class ContactListComponent{
   @Input() contacts: IContact [];
-  @Output()toggled: EventEmitter<IContact>;
   @Output()deleted: EventEmitter<IContact>;
   showViewForm = true;
 
-  constructor(){
-  	this.toggled = new EventEmitter<IContact>();
-  	this.deleted = new EventEmitter<IContact>();
+  constructor(private contactService: ContactService){
+  		this.deleted = new EventEmitter<IContact>();
   }
 
-  onContactToggled (contact: IContact): void {
-  	this.toggled.emit(contact);
-  }
   onContactDeleted (contact: IContact): void {
-  	this.toggled.emit(contact);
+  	this.deleted.emit(contact);
+  }
+
+  deleteContact(i){
+    console.log('Delete contact');
+    this.contacts.splice(i, 1);
   }
 
 }

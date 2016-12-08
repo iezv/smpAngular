@@ -38,8 +38,8 @@ var ContactService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.apiUrl, body, options)
             .toPromise()
-            .then(function (res) { return res.json().data; })
-            .catch(this.handleError);
+            .then(function (res) { return res.json().data; });
+        //.catch(this.handleError)
     };
     ContactService.prototype.put = function (contact) {
         var body = JSON.stringify(contact);

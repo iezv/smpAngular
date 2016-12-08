@@ -42,9 +42,8 @@ export class ContactService {
 
         return this.http.post(this.apiUrl, body, options)
                         .toPromise()
-                      //  .then(res => res.json())
-                       .then(res => res.json().data)
-                       .catch(this.handleError)
+                        .then(res => res.json().data)
+                       //.catch(this.handleError)
     }
 
     private put(contact: IContact): Promise<IContact> {

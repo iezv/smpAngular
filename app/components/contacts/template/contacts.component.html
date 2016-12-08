@@ -1,7 +1,10 @@
 	<div class="row">
 		<div class = "col-md-12">
 			<div class="container-fluid" id="conform">
-				 <new-contact [hidden]="showForm" (created)="onContactCreated($event)"></new-contact>
+				 <new-contact [hidden]="showForm" 
+				 (created)="onContactCreated($event)"
+                  [showForm]="showForm"
+				 ></new-contact>
 			</div>
 		</div>
 	</div>	
@@ -16,7 +19,7 @@
 	<div class="row">
 		<div class = "col-md-12">
 			<div class="container-fluid" id="conform">
-				<show-contact [hidden]="showViewForm"></show-contact>
+				<show-contact [hidden]="showViewForm" [showViewForm]="showViewForm"></show-contact>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.model';
+import { ContactService } from '../../../shared/contact.service';
+
+
 
 @Component({
 	selector: 'show-contact',
@@ -8,7 +11,11 @@ import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.mo
 })
 
 export class ShowContactComponent{
-	showViewForm = true;
+	@Input() showViewForm: boolean;
+
+	constructor(private contactService: ContactService){
+  	
+  }
 
 	public updateContact(){
 		console.log("Update contact!");
