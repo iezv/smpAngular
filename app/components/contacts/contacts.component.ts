@@ -17,14 +17,13 @@ import { ShowContactComponent } from './contact-form/showcontact.component';
 export class ContactsComponent implements OnInit {
 	contacts: IContact[];
 	showForm: boolean;
-    showViewForm: boolean;
+
     title: string;
     buttAdd: boolean;
 
     constructor(private contactService: ContactService){
         this.title = "Contacts";
         this.showForm = true;
-        this.showViewForm=true;
         this.buttAdd = false;
         this.contacts = [];
     }
@@ -36,49 +35,44 @@ export class ContactsComponent implements OnInit {
     onContactCreated(contact: IContact): void {
         if (contact.id == 0 || contact.id ==null || contact.firstname == '' || contact.firstname ==null)
             { this.showformnewcomtact();
-                return; }
-                this.contactService.addContact(contact).then(contact => this.addContact(contact));
-
+                return;
             }
+            this.contactService.addContact(contact).then(contact => this.addContact(contact));
 
-      onContactUpdated(contact: IContact): void {
-                this.contactService.updateContact(contact).then(contact => {});
+        }
+
+        onContactUpdated(contact: IContact): void {
+            this.contactService.updateContact(contact).then(contact => {});
+        }
+
+        onContactDeleted(contact: IContact): void {
+            this.contactService.deleteContact(contact).then(contact => this.deleteContact(contact));
+        }
+
+        onContactShowed(contact: IContact): void{
+            if (this.buttAdd==false){
+                this.buttAdd = true;
+            }else{ this.buttAdd = true; }
+        }
+
+        showformnewcomtact(){
+            if (this.showForm == true){
+                this.showForm = false;
+            } else {
+                this.showForm = true;
             }
+        }
 
-     onContactDeleted(contact: IContact): void {
-                this.contactService.deleteContact(contact).then(contact => this.deleteContact(contact));
+        private addContact(contact: IContact): void {
+            this.contacts.push(contact);
+            this.showformnewcomtact();
+        }
+
+        private deleteContact(contact: IContact): void {
+            let index = this.contacts.indexOf(contact);
+            if (index > -1) {
+                this.contacts.splice(index, 1);
             }
-
-    onContactShowed(contact: IContact): void{
-                console.log(contact);
-                if (this.showViewForm==true){
-                    this.buttAdd = true;
-                    this.showViewForm = false;
-                }else{
-                    this.buttAdd = false;
-                    this.showViewForm = true;
-                }
-               this.contactService.getContact(contact);
-             }
-
-     showformnewcomtact(){
-                if (this.showForm == true){
-                    this.showForm = false;
-                } else {
-                    this.showForm = true;
-                }
-            }
-
-    private addContact(contact: IContact): void {
-                this.contacts.push(contact);
-                this.showformnewcomtact();
-            }
-
-    private deleteContact(contact: IContact): void {
-                let index = this.contacts.indexOf(contact);
-                if (index > -1) {
-                    this.contacts.splice(index, 1);
-                }
-            }
-   }
+        }
+    }
 

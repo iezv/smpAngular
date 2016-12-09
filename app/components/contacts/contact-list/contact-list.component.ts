@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.model';
 import { ContactService } from '../../../shared/contact.service';
+import { Contact, Address, Phones, Emails } from '../../../shared/contact.model';
 
 @Component({
 	selector: 'contact-list',
@@ -12,10 +13,13 @@ export class ContactListComponent{
   @Input() contacts: IContact [];
   @Output() deleted: EventEmitter<IContact>;
   @Output()  showed: EventEmitter<IContact>;
-    
+  showViewForm: boolean;
+  contact: Contact;
+
   constructor(private contactService: ContactService){
     this.deleted = new EventEmitter<IContact>();
     this.showed = new EventEmitter<IContact>();
+    this.showViewForm = true;
   }
 
   onContactDeleted (contact: IContact): void {
@@ -23,9 +27,19 @@ export class ContactListComponent{
   }
   
   onContactShowed(contact: IContact): void{
-     this.showed.emit(contact);
-   }
+    this.contact = contact;
+   //    this.showed.emit(contact);
+    if (this.showViewForm==true){
+      this.showViewForm = false;
+    }else{
+      this.showViewForm = true;
+    }
+      console.log(this.contact);
+  }
 }
+
+
+
 
 
 

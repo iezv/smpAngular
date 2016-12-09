@@ -15,12 +15,21 @@ var ContactListComponent = (function () {
         this.contactService = contactService;
         this.deleted = new core_1.EventEmitter();
         this.showed = new core_1.EventEmitter();
+        this.showViewForm = true;
     }
     ContactListComponent.prototype.onContactDeleted = function (contact) {
         this.deleted.emit(contact);
     };
     ContactListComponent.prototype.onContactShowed = function (contact) {
-        this.showed.emit(contact);
+        this.contact = contact;
+        //    this.showed.emit(contact);
+        if (this.showViewForm == true) {
+            this.showViewForm = false;
+        }
+        else {
+            this.showViewForm = true;
+        }
+        console.log(this.contact);
     };
     __decorate([
         core_1.Input(), 

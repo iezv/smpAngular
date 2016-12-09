@@ -15,13 +15,17 @@ var ShowContactComponent = (function () {
         this.model = new contact_model_1.Contact(1, '', '', '', '', new contact_model_1.Address(84000, '', '', '', ''), new contact_model_1.Phones('', '', '', '', ''), new contact_model_1.Emails('', ''), '', '');
     }
     ShowContactComponent.prototype.ngOnInit = function () {
-        console.log('URA');
-        console.log(this.showed);
+        console.log(this.contact);
+        console.log(this.model);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', core_1.EventEmitter)
     ], ShowContactComponent.prototype, "showed", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], ShowContactComponent.prototype, "contact", void 0);
     ShowContactComponent = __decorate([
         core_1.Component({
             selector: 'show-contact',
