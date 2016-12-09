@@ -9,6 +9,7 @@ import { ContactService } from '../../../shared/contact.service';
 })
 
 export class NewContactComponent{
+	
 	@Output() created: EventEmitter<Contact>;
 	model = new Contact(1, '', '', '', '',new Address(84000,'','','',''),
 		new Phones('','','','',''), new Emails('',''),'','');

@@ -19,12 +19,10 @@
 						<th class="th-contact"> {{ contact.company }}, {{ contact.position }}   </th>
 						<th class="th-contact"> {{ contact.phones.prime }}                      </th>
 						<th class="th-contact"> {{ contact.emails.email1 }}    </th>
-						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" >
-						<!--(click)="showContact(i)"-->
+						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="showContact(contact)">
 							<i class="fa fa-address-card-o" aria-hidden="true"></i></button>
 						</th>
-						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" 
-						(click)="deleteContact(i)" (deleted)="onContactDeleted($event)">
+						<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="onContactDeleted(contact)">
 							<i class="fa fa-trash" aria-hidden="true"></i></button>
 						</th>
 					</tr>

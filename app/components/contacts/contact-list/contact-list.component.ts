@@ -18,12 +18,9 @@ export class ContactListComponent{
   }
 
   onContactDeleted (contact: IContact): void {
-  	this.deleted.emit(contact);
+    	this.deleted.emit(contact);
   }
 
-  deleteContact(i){
-    console.log('Delete contact');
-    this.contacts.splice(i, 1);
-  }
+  
 
-}
+ }

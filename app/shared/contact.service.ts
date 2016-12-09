@@ -14,7 +14,14 @@ export class ContactService {
 		console.log('ContactService Initialized...');
 	}
 
-	getContacts(): Promise<IContact[]>{
+	getContact(contact: IContact): Promise<IContact[]>{
+        return this.http.get(this.apiUrl+'?id='+contact.id)
+          .toPromise()
+          .then(res => res.json().data)
+          .catch(this.handleError);
+    }
+
+    getContacts(): Promise<IContact[]>{
         return this.http.get(this.apiUrl)
           .toPromise()
           .then(res => res.json().data)
@@ -22,15 +29,20 @@ export class ContactService {
     }
 
     addContact(contact: IContact): Promise<IContact> {
+        console.log ('Add contact to server:');
         console.log(contact);
         return  this.post(contact);
     }
 
     updateContact(contact: IContact): Promise<IContact> {
+        console.log ('Update contact on server:');
+        console.log (contact);
         return this.put(contact);
     }
 
     deleteContact(contact: IContact): Promise<IContact> {
+        console.log ('Delete contact on server:');
+        console.log (contact);
         return this.delete(contact);
     }
 

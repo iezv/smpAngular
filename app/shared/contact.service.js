@@ -17,6 +17,12 @@ var ContactService = (function () {
         this.apiUrl = 'api/contacts';
         console.log('ContactService Initialized...');
     }
+    ContactService.prototype.getContact = function (contact) {
+        return this.http.get(this.apiUrl + '?id=' + contact.id)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
     ContactService.prototype.getContacts = function () {
         return this.http.get(this.apiUrl)
             .toPromise()
@@ -24,13 +30,18 @@ var ContactService = (function () {
             .catch(this.handleError);
     };
     ContactService.prototype.addContact = function (contact) {
+        console.log('Add contact to server:');
         console.log(contact);
         return this.post(contact);
     };
     ContactService.prototype.updateContact = function (contact) {
+        console.log('Update contact on server:');
+        console.log(contact);
         return this.put(contact);
     };
     ContactService.prototype.deleteContact = function (contact) {
+        console.log('Delete contact on server:');
+        console.log(contact);
         return this.delete(contact);
     };
     ContactService.prototype.post = function (contact) {

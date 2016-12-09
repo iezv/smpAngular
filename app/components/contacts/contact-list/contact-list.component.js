@@ -19,10 +19,6 @@ var ContactListComponent = (function () {
     ContactListComponent.prototype.onContactDeleted = function (contact) {
         this.deleted.emit(contact);
     };
-    ContactListComponent.prototype.deleteContact = function (i) {
-        console.log('Delete contact');
-        this.contacts.splice(i, 1);
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

@@ -35,9 +35,8 @@ export class ContactsComponent implements OnInit {
         if (contact.id == 0 || contact.id ==null || contact.firstname == '' || contact.firstname ==null)
              { this.showformnewcomtact();
                  return; }
-            console.log(contact);
-            this.contactService.addContact(contact).then(contact => this.addContact(contact));
-        
+        this.contactService.addContact(contact).then(contact => this.addContact(contact));
+   
     }
 
     onContactUpdated(contact: IContact): void {

@@ -28,7 +28,6 @@ var ContactsComponent = (function () {
             this.showformnewcomtact();
             return;
         }
-        console.log(contact);
         this.contactService.addContact(contact).then(function (contact) { return _this.addContact(contact); });
     };
     ContactsComponent.prototype.onContactUpdated = function (contact) {
