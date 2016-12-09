@@ -5,26 +5,26 @@
 		<div class="form-group col-lg-3 col-md-6 formcont">
 			<label class="sr-only" for="name">First Name</label>
 			<input type="text" class="form-control"  placeholder="First name" 
-			
-			name="firstname"  > 
+			[(ngModel)]="model.firstname"
+			name="firstname">
 		</div>
 		<div class="form-group col-lg-3 col-md-6 formcont">
 			<label class="sr-only" for="name">Last Name</label>
 			<input type="text" class="form-control"  placeholder="Last name" 
-			
-			name="lastname"  > 
+			[(ngModel)]="model.lastname"
+			name="lastname">
 		</div>
 		<div class="form-group col-lg-3 col-md-6 formcont" >
 			<label class="sr-only" for="company">Company</label>
 			<input type="text" class="form-control"  placeholder="Company" 
-			
-			name="company"  > 
+			[(ngModel)]="model.company"
+			name="company" > 
 		</div>
 		<div class="form-group col-lg-3 col-md-6 formcont">
 			<label class="sr-only" for="position" >Position</label>
 			<input type="text" class="form-control" placeholder="Position"  
-			
-			name="position"  > 
+			[(ngModel)]="model.position"
+			name="position" > 
 		</div>
 	</div>
 
@@ -33,31 +33,31 @@
 		<div class="form-group col-lg-2 col-md-4 formcont" >
 			<label class="sr-only" for="postcode" >Postcode</label>
 			<input type="text" class="form-control" placeholder="Post code"  
-			
+			[(ngModel)]="model.address.postcode"
 			name="postcode" >
 		</div>
 		<div class="form-group col-lg-3 col-md-4 formcont" >
 			<label class="sr-only" for="city" >City</label>
 			<input type="text" class="form-control" placeholder="City"  
-			
+			[(ngModel)]="model.address.city"
 			name="city" >
 		</div>
 		<div class="form-group col-lg-3 col-md-4 formcont">
 			<label class="sr-only" for="street" >Street</label>
 			<input type="text" class="form-control" placeholder="Street"
-			
+			[(ngModel)]="model.address.street"
 			name="street" >
 		</div>
 		<div class="form-group col-lg-2 col-md-4 formcont">
 			<label class="sr-only" for="bld" >Building</label>
 			<input type="text" class="form-control" placeholder="Building"
-			
+			[(ngModel)]="model.address.bld"
 			name="bld" >
 		</div>
 		<div class="form-group col-lg-2 col-md-4 formcont">
 			<label class="sr-only" for="appart" >Apartment</label>
 			<input type="text" class="form-control" placeholder="Apartment"
-			
+			[(ngModel)]="model.address.appart"
 			name="appart" >
 		</div>
 	</div>
@@ -66,31 +66,31 @@
 		<div class="form-group col-lg-3 col-md-4 formcont" >
 			<label class="sr-only" for="prime" >Prime phone</label>
 			<input type="text" class="form-control" placeholder="Prime phone"  
-			
+			[(ngModel)]="model.phones.prime"
 			name="prime" >
 		</div>
 		<div class="form-group col-lg-3 col-md-4 formcont" >
 			<label class="sr-only" for="mobile" >Mobile phone</label>
 			<input type="text" class="form-control" placeholder="Mobile phone"  
-			
+			[(ngModel)]="model.phones.mobile"
 			name="mobile" >
 		</div>
 		<div class="form-group col-lg-2 col-md-4 formcont" >
 			<label class="sr-only" for="work" >Work phone</label>
 			<input type="text" class="form-control" placeholder="Work phone"  
-			
+			[(ngModel)]="model.phones.work"
 			name="work" >
 		</div>
 		<div class="form-group col-lg-2 col-md-4 formcont" >
 			<label class="sr-only" for="fax" >Fax</label>
 			<input type="text" class="form-control" placeholder="Fax"  
-			
+			[(ngModel)]="model.phones.fax"
 			name="fax" >
 		</div>
 		<div class="form-group col-lg-2 col-md-4 formcont" >
 			<label class="sr-only" for="other" >Other phone</label>
 			<input type="text" class="form-control" placeholder="Other phone"  
-			
+			[(ngModel)]="model.phones.other"
 			name="other" >
 		</div>
 	</div>
@@ -99,30 +99,31 @@
 		<div class="form-group col-lg-4 col-md-4 formcont">
 			<label class="sr-only" for="inputEmail">Email1</label>
 			<input type="text" class="form-control" placeholder="Prime email"  
-			
+			[(ngModel)]="model.emails.email1"
 			name="email1" >
 		</div>
 		<div class="form-group col-lg-4 col-md-4 formcont">
 			<label class="sr-only" for="inputEmail">Email2</label>
 			<input type="text" class="form-control" placeholder="Other email"  
-			
+			[(ngModel)]="model.emails.email2"
 			name="email2" >
 		</div>
 		<div class="form-group col-lg-4 col-md-4 formcont">
 			<label class="sr-only" for="skype">Skype</label>
 			<input type="text" class="form-control" placeholder="Skype"  
-			
+			[(ngModel)]="model.skype"
 			name="skype" >
 		</div>
 	</div>
 	<div class="row center-block">
 		<div><p>Comment</p></div>
 		<div class="form-group col-sm-12 formcont">
-			<textarea class="form-control" name="comment" rows="3" placeholder="Comment" >
-			</textarea>
+			<textarea class="form-control" name="comment" rows="3" placeholder="Comment"
+			[(ngModel)]="model.comment"></textarea>
 		</div>
 	</div>
 	<div class="row center-block">
-		<button id="save" type="submit" class="btn btn-primary" (click)="updateContact()">Save</button>
+		<button id="save" type="submit" class="btn btn-primary" (click)="updateContact()">Save</button> 
+		<button id="save" type="cancel" class="btn btn-primary" (click)="cancel()">Cancel</button>
 	</div>
 </form>

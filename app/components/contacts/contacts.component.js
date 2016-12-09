@@ -16,6 +16,7 @@ var ContactsComponent = (function () {
         this.title = "Contacts";
         this.showForm = true;
         this.showViewForm = true;
+        this.buttAdd = false;
         this.contacts = [];
     }
     ContactsComponent.prototype.ngOnInit = function () {
@@ -36,6 +37,18 @@ var ContactsComponent = (function () {
     ContactsComponent.prototype.onContactDeleted = function (contact) {
         var _this = this;
         this.contactService.deleteContact(contact).then(function (contact) { return _this.deleteContact(contact); });
+    };
+    ContactsComponent.prototype.onContactShowed = function (contact) {
+        console.log(contact);
+        if (this.showViewForm == true) {
+            this.buttAdd = true;
+            this.showViewForm = false;
+        }
+        else {
+            this.buttAdd = false;
+            this.showViewForm = true;
+        }
+        this.contactService.getContact(contact);
     };
     ContactsComponent.prototype.showformnewcomtact = function () {
         if (this.showForm == true) {

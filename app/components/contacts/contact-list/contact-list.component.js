@@ -13,11 +13,14 @@ var contact_service_1 = require('../../../shared/contact.service');
 var ContactListComponent = (function () {
     function ContactListComponent(contactService) {
         this.contactService = contactService;
-        this.showViewForm = true;
         this.deleted = new core_1.EventEmitter();
+        this.showed = new core_1.EventEmitter();
     }
     ContactListComponent.prototype.onContactDeleted = function (contact) {
         this.deleted.emit(contact);
+    };
+    ContactListComponent.prototype.onContactShowed = function (contact) {
+        this.showed.emit(contact);
     };
     __decorate([
         core_1.Input(), 
@@ -27,6 +30,10 @@ var ContactListComponent = (function () {
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
     ], ContactListComponent.prototype, "deleted", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], ContactListComponent.prototype, "showed", void 0);
     ContactListComponent = __decorate([
         core_1.Component({
             selector: 'contact-list',

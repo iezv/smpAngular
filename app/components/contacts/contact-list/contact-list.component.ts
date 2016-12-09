@@ -10,17 +10,22 @@ import { ContactService } from '../../../shared/contact.service';
 
 export class ContactListComponent{
   @Input() contacts: IContact [];
-  @Output()deleted: EventEmitter<IContact>;
-  showViewForm = true;
-
+  @Output() deleted: EventEmitter<IContact>;
+  @Output()  showed: EventEmitter<IContact>;
+    
   constructor(private contactService: ContactService){
-  		this.deleted = new EventEmitter<IContact>();
+    this.deleted = new EventEmitter<IContact>();
+    this.showed = new EventEmitter<IContact>();
   }
 
   onContactDeleted (contact: IContact): void {
-    	this.deleted.emit(contact);
+    this.deleted.emit(contact);
   }
-
   
+  onContactShowed(contact: IContact): void{
+     this.showed.emit(contact);
+   }
+}
 
- }
+
+

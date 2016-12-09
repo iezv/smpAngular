@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { IContact, IAddress, IPhones, IEmails } from '../../../shared/contact.model';
+import { Contact, Address, Phones, Emails } from '../../../shared/contact.model';
 import { ContactService } from '../../../shared/contact.service';
-
 
 
 @Component({
@@ -10,16 +10,21 @@ import { ContactService } from '../../../shared/contact.service';
     styleUrls: ['./app/components/contacts/contact-form/style/showcontact.component.css'],
 })
 
-export class ShowContactComponent{
-	@Input() showViewForm: boolean;
+export class ShowContactComponent implements OnInit {
+	@Input() showed: EventEmitter<Contact>;
 
-	constructor(private contactService: ContactService){
-  	
+    model = new Contact(1, '', '', '', '',new Address(84000,'','','',''),
+		new Phones('','','','',''), new Emails('',''),'','');
+	
+	constructor(){
+  	    	  
   }
 
-	public updateContact(){
-		console.log("Update contact!");
-		this.showViewForm = true;
-	}
-  
+  ngOnInit() {
+  	 console.log('URA');
+  	 console.log(this.showed);
+
+  }
+
+	 
 }
