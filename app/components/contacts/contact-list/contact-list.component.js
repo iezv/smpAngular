@@ -10,26 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var contact_service_1 = require('../../../shared/contact.service');
+var showcontact_component_1 = require('./../contact-form/showcontact.component');
 var ContactListComponent = (function () {
     function ContactListComponent(contactService) {
         this.contactService = contactService;
         this.deleted = new core_1.EventEmitter();
-        this.showed = new core_1.EventEmitter();
         this.showViewForm = true;
     }
     ContactListComponent.prototype.onContactDeleted = function (contact) {
         this.deleted.emit(contact);
     };
     ContactListComponent.prototype.onContactShowed = function (contact) {
-        this.contact = contact;
-        //    this.showed.emit(contact);
+        this.showContactComponent.model = contact;
         if (this.showViewForm == true) {
             this.showViewForm = false;
         }
         else {
             this.showViewForm = true;
         }
-        console.log(this.contact);
+        console.log(contact);
+    };
+    ContactListComponent.prototype.onContactUpdated = function (contact) {
+        console.log(contact);
+        //this.updated.emit(contact);
     };
     __decorate([
         core_1.Input(), 
@@ -40,9 +43,9 @@ var ContactListComponent = (function () {
         __metadata('design:type', core_1.EventEmitter)
     ], ContactListComponent.prototype, "deleted", void 0);
     __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], ContactListComponent.prototype, "showed", void 0);
+        core_1.ViewChild(showcontact_component_1.ShowContactComponent), 
+        __metadata('design:type', showcontact_component_1.ShowContactComponent)
+    ], ContactListComponent.prototype, "showContactComponent", void 0);
     ContactListComponent = __decorate([
         core_1.Component({
             selector: 'contact-list',

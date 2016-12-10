@@ -18,7 +18,7 @@ var ContactService = (function () {
         console.log('ContactService Initialized...');
     }
     ContactService.prototype.getContact = function (contact) {
-        return this.http.get(this.apiUrl + '?id=' + contact.id)
+        return this.http.get(this.apiUrl + '/' + contact.id)
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);

@@ -17,7 +17,6 @@ import { ShowContactComponent } from './contact-form/showcontact.component';
 export class ContactsComponent implements OnInit {
 	contacts: IContact[];
 	showForm: boolean;
-
     title: string;
     buttAdd: boolean;
 
@@ -28,11 +27,11 @@ export class ContactsComponent implements OnInit {
         this.contacts = [];
     }
 
-    ngOnInit() {
-        this.contactService.getContacts().then(contacts => this.contacts = contacts);
-    }
+       ngOnInit() {
+           this.contactService.getContacts().then(contacts => this.contacts = contacts);
+        }
     
-    onContactCreated(contact: IContact): void {
+        onContactCreated(contact: IContact): void {
         if (contact.id == 0 || contact.id ==null || contact.firstname == '' || contact.firstname ==null)
             { this.showformnewcomtact();
                 return;
@@ -42,7 +41,7 @@ export class ContactsComponent implements OnInit {
         }
 
         onContactUpdated(contact: IContact): void {
-            this.contactService.updateContact(contact).then(contact => {});
+           this.contactService.updateContact(contact).then(contact => {});
         }
 
         onContactDeleted(contact: IContact): void {

@@ -15,7 +15,7 @@ export class ContactService {
 	}
 
 	getContact(contact: IContact): Promise<IContact[]>{
-        return this.http.get(this.apiUrl+'?id='+contact.id)
+        return this.http.get(this.apiUrl+'/'+contact.id)
           .toPromise()
           .then(res => res.json().data)
           .catch(this.handleError);
