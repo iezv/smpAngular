@@ -14,6 +14,7 @@ var showcontact_component_1 = require('./../contact-form/showcontact.component')
 var ContactListComponent = (function () {
     function ContactListComponent(contactService) {
         this.contactService = contactService;
+        this.onUpdated = new core_1.EventEmitter();
         this.deleted = new core_1.EventEmitter();
         this.showViewForm = true;
     }
@@ -32,7 +33,12 @@ var ContactListComponent = (function () {
     };
     ContactListComponent.prototype.onContactUpdated = function (contact) {
         console.log(contact);
-        //this.updated.emit(contact);
+        this.showViewForm = true;
+    };
+    ContactListComponent.prototype.closeViewForm = function () {
+        if (this.showViewForm == false) {
+            this.showViewForm = true;
+        }
     };
     __decorate([
         core_1.Input(), 
@@ -42,6 +48,10 @@ var ContactListComponent = (function () {
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
     ], ContactListComponent.prototype, "deleted", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ContactListComponent.prototype, "onUpdated", void 0);
     __decorate([
         core_1.ViewChild(showcontact_component_1.ShowContactComponent), 
         __metadata('design:type', showcontact_component_1.ShowContactComponent)

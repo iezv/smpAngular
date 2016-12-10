@@ -13,7 +13,8 @@ import { ShowContactComponent } from './../contact-form/showcontact.component';
 export class ContactListComponent{
   @Input() contacts: IContact [];
   @Output() deleted: EventEmitter<IContact>;
-  //@Output() updated: EventEmitter<Contact>;
+  @Output() onUpdated = new EventEmitter<Contact>();
+  
   showViewForm: boolean;
  
   @ViewChild(ShowContactComponent) showContactComponent: ShowContactComponent
@@ -40,9 +41,14 @@ export class ContactListComponent{
 
   onContactUpdated(contact: IContact): void{
     console.log(contact);
-    //this.updated.emit(contact);
+    this.showViewForm = true;
   }
 
+ closeViewForm(){
+      if (this.showViewForm == false){
+           this.showViewForm = true;
+        } 
+   }
   
 }
 

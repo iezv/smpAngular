@@ -19,8 +19,8 @@
 					<th class="th-contact"> {{ contact.company }}, {{ contact.position }}   </th>
 					<th class="th-contact"> {{ contact.phones.prime }}                      </th>
 					<th class="th-contact"> {{ contact.emails.email1 }}    </th>
-					<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="onContactShowed(contact)">
-						<i class="fa fa-address-card-o" aria-hidden="true"></i></button>
+					<th> <a class="page-scroll" href="#down"><button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="onContactShowed(contact)">
+						<i class="fa fa-address-card-o" aria-hidden="true"></i></button></a>
 					</th>
 					<th> <button id="view-cont" type="button" class="btn btn-default btn-lg" (click)="onContactDeleted(contact)">
 						<i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -33,7 +33,10 @@
 <div class="row">
 	<div class = "col-md-12">
 		<div class="container-fluid" id="conform">
-		<show-contact [hidden]="showViewForm"></show-contact>
+		<show-contact [hidden]="showViewForm" 
+		(onUpdated)="onContactUpdated($event)"
+		(onCancel)="closeViewForm($event)"></show-contact>
 		</div>
+		<div id="down"></div>
 	</div>
 </div>

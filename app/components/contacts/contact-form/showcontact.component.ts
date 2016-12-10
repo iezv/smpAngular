@@ -12,8 +12,9 @@ import { ContactService } from '../../../shared/contact.service';
 })
 
 export class ShowContactComponent {
+  @Output() onUpdated = new EventEmitter<Contact>();
+  @Output() onCancel = new EventEmitter<Contact>();
 
-  contactlist: ContactListComponent
   model = new Contact(0, '', '', '', '',new Address(0,'','','',''),
 		new Phones('','','','',''), new Emails('',''),'','');
 	
@@ -22,7 +23,7 @@ export class ShowContactComponent {
    
    updateContact(){
      console.log('Update contact');
-      let contact =
+     let contact =
       new Contact(this.model.id, 
         this.model.firstname, 
         this.model.lastname, 
@@ -42,13 +43,15 @@ export class ShowContactComponent {
           this.model.emails.email2),
         this.model.skype,
         this.model.comment);
-
+        console.log(contact);
+        this.onUpdated.emit(contact);
 }
    
   
 
    cancel(){
      console.log('Cancel');
+     this.onCancel.emit();
    }
 
 }
